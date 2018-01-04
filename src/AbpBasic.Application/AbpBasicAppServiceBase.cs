@@ -28,6 +28,7 @@ namespace AbpBasic
             var user = UserManager.FindByIdAsync(AbpSession.GetUserId().ToString());
             if (user == null)
             {
+                Logger.Debug("There is no current user!");
                 throw new Exception("There is no current user!");
             }
 
