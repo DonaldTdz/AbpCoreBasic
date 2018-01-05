@@ -19,6 +19,13 @@ namespace AbpBasic.Web.Host.Controllers
 
         public IActionResult Index()
         {
+            //nlog test
+            Logger.Info("信息日志");
+            Logger.Debug("调试日志");
+            Logger.Error("错误日志");
+            Logger.Fatal("异常日志");
+            Logger.Warn("警告日志");
+            Logger.CreateChildLogger("child");
             return Redirect("/swagger");
         }
 

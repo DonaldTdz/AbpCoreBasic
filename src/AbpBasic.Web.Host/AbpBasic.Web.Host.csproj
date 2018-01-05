@@ -25,6 +25,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abp.Castle.NLog\Abp.Castle.NLog.csproj" />
     <ProjectReference Include="..\AbpBasic.Web.Core\AbpBasic.Web.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
