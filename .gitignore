@@ -133,6 +133,7 @@ DocProject/Help/*.hhk
 DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
+**/App_Data/Logs/*.*
 
 # Click-Once directory
 publish/

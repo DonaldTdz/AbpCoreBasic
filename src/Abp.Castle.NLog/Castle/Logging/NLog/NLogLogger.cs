@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using Castle.Core.Logging;
 using ILogger = Castle.Core.Logging.ILogger;
 using NLogCore = NLog;
 

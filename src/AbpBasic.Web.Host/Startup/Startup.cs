@@ -9,8 +9,8 @@ using Microsoft.Extensions.Logging;
 using Castle.Facilities.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using Abp.AspNetCore;
-using Abp.Castle.Logging.Log4Net;
-//using Abp.Castle.Logging.NLog;
+//using Abp.Castle.Logging.Log4Net;
+using Abp.Castle.Logging.NLog;
 using Abp.Extensions;
 using AbpBasic.Authentication.JwtBearer;
 using AbpBasic.Configuration;
@@ -91,14 +91,14 @@ namespace AbpBasic.Web.Host.Startup
             // Configure Abp and Dependency Injection
             return services.AddAbp<AbpBasicWebHostModule>(
             // Configure Log4Net logging
-            options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                f => f.UseAbpLog4Net().WithConfig("log4net.config")
-            )
+            //options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
+            //    f => f.UseAbpLog4Net().WithConfig("log4net.config")
+            //)
 
             // Configure Nlog Logging
-            //options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-            //   f => f.UseAbpNLog().WithConfig("nlog.config")
-            //)
+            options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
+               f => f.UseAbpNLog().WithConfig("nlog.config")
+            )
             );
         }
 
