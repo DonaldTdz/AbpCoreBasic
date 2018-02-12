@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Abp.EntityFrameworkCore" Version="3.4.0" />
+    <PackageReference Include="IBM.EntityFrameworkCore" Version="1.1.1.101" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbpBasic.DB2.Core\AbpBasic.DB2.Core.csproj" />
+  </ItemGroup>
+
+</Project>

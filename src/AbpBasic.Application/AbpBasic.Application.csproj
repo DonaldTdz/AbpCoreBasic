@@ -15,5 +15,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbpBasic.Core\AbpBasic.Core.csproj" />
+    <ProjectReference Include="..\AbpBasic.DB2.Core\AbpBasic.DB2.Core.csproj" />
   </ItemGroup>
 </Project>
