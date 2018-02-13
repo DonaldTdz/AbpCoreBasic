@@ -14,6 +14,7 @@ using AbpBasic.EntityFrameworkCore;
 using AbpBasic.EntityFrameworkCore.Seed.Host;
 using AbpBasic.EntityFrameworkCore.Seed.Tenants;
 using AbpBasic.MultiTenancy;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AbpBasic.Tests
 {

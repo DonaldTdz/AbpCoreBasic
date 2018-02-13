@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Abp.Application.Services;
+using AbpBasic.ACTS.Dto;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AbpBasic.ACTS
 {
-    interface IACTAppService
+    public interface IACTAppService : IApplicationService
     {
+        IList<ACTDto> GetACTListByLikeDesc(string desc);
     }
 }

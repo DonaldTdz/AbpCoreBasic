@@ -11,23 +11,40 @@ using Abp.Zero.Configuration;
 using Abp.Zero.EntityFrameworkCore;
 using AbpBasic.EntityFrameworkCore;
 using AbpBasic.Tests.DependencyInjection;
+using AbpBasic.DB2.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace AbpBasic.Tests
 {
     [DependsOn(
         typeof(AbpBasicApplicationModule),
         typeof(AbpBasicEntityFrameworkModule),
+        typeof(DB2EntityFrameworkModule),
         typeof(AbpTestBaseModule)
         )]
     public class AbpBasicTestModule : AbpModule
     {
-        public AbpBasicTestModule(AbpBasicEntityFrameworkModule abpProjectNameEntityFrameworkModule)
+        public AbpBasicTestModule(AbpBasicEntityFrameworkModule abpProjectNameEntityFrameworkModule, DB2EntityFrameworkModule db2EntityFrameworkModule)
         {
             abpProjectNameEntityFrameworkModule.SkipDbContextRegistration = true;
+            db2EntityFrameworkModule.SkipDbContextRegistration = true;
         }
+
+        //private readonly IHostingEnvironment _env;
+        //private readonly IConfigurationRoot _appConfiguration;
+
+        //public AbpBasicTestModule(IHostingEnvironment env)
+        //{
+        //    _env = env;
+        //    _appConfiguration = env.GetAppConfiguration();
+        //}
 
         public override void PreInitialize()
         {
+            //Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(
+            //   AbpBasicConsts.ConnectionStringName
+            //);
             Configuration.UnitOfWork.Timeout = TimeSpan.FromMinutes(30);
             Configuration.UnitOfWork.IsTransactional = false;
 

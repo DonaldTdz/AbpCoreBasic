@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using Abp.EntityFrameworkCore;
 using Abp.EntityFrameworkCore.Repositories;
+using AbpBasic.DB2.ACTS;
 using AbpBasic.DB2.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -66,6 +67,18 @@ namespace AbpBasic.DB2.EntityFrameworkCore.Repositories
         }
 
         // Do not add any method here, add to the class above (since this inherits it)!!!
+    }
+
+    public class ACTRepository : DB2RepositoryBase<ACT, short>
+    {
+        protected ACTRepository(IDbContextProvider<DB2DbContext> dbContextProvider)
+           : base(dbContextProvider)
+        {
+        }
+        public override string GetIdName()
+        {
+            return "ACTNO";
+        }
     }
 
 

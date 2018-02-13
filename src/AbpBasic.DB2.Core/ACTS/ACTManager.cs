@@ -11,6 +11,11 @@ namespace AbpBasic.DB2.ACTS
     {
         private readonly IRepository<ACT, short> _actRepository;
 
+        public ACTManager(IRepository<ACT, short> actRepository)
+        {
+            _actRepository = actRepository;
+        }
+
         public IList<ACT> GetACTListByLikeDesc(string desc)
         {
             var query = _actRepository.GetAll().Where(a => a.ACTDESC.Contains(desc));

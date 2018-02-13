@@ -5,6 +5,7 @@ using Xunit;
 using Abp.Application.Services.Dto;
 using AbpBasic.Users;
 using AbpBasic.Users.Dto;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AbpBasic.Tests.Users
 {

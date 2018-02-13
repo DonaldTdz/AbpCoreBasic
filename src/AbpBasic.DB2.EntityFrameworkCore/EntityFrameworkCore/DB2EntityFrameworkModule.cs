@@ -1,12 +1,17 @@
-﻿using Abp.EntityFrameworkCore.Configuration;
+﻿using Abp.EntityFrameworkCore;
+using Abp.EntityFrameworkCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using AbpBasic.DB2.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AbpBasic.DB2.EntityFrameworkCore
 {
+    [DependsOn(
+        typeof(DB2CoreModule),
+        typeof(AbpEntityFrameworkCoreModule))]
     public class DB2EntityFrameworkModule : AbpModule
     {
         /* Used it tests to skip dbcontext registration, in order to use in-memory database of EF Core */

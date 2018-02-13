@@ -2,11 +2,13 @@
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using AbpBasic.Authorization;
+using AbpBasic.DB2.Core;
 
 namespace AbpBasic
 {
     [DependsOn(
-        typeof(AbpBasicCoreModule), 
+        typeof(AbpBasicCoreModule),
+        typeof(DB2CoreModule),
         typeof(AbpAutoMapperModule))]
     public class AbpBasicApplicationModule : AbpModule
     {
