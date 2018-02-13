@@ -25,14 +25,16 @@ namespace AbpBasic.Tests
         )]
     public class AbpBasicTestModule : AbpModule
     {
-        public AbpBasicTestModule(AbpBasicEntityFrameworkModule abpProjectNameEntityFrameworkModule, DB2EntityFrameworkModule db2EntityFrameworkModule)
+
+        private readonly IConfigurationRoot _appConfiguration;
+        public AbpBasicTestModule(AbpBasicEntityFrameworkModule abpProjectNameEntityFrameworkModule, DB2EntityFrameworkModule db2EntityFrameworkModule, IConfigurationRoot appConfiguration)
         {
-            abpProjectNameEntityFrameworkModule.SkipDbContextRegistration = true;
+            abpProjectNameEntityFrameworkModule.SkipDbContextRegistration = false;
             db2EntityFrameworkModule.SkipDbContextRegistration = true;
+            _appConfiguration = appConfiguration;
         }
 
-        //private readonly IHostingEnvironment _env;
-        //private readonly IConfigurationRoot _appConfiguration;
+       
 
         //public AbpBasicTestModule(IHostingEnvironment env)
         //{
@@ -42,9 +44,10 @@ namespace AbpBasic.Tests
 
         public override void PreInitialize()
         {
-            //Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(
-            //   AbpBasicConsts.ConnectionStringName
-            //);
+            Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(
+             AbpBasicConsts.ConnectionStringName
+          );
+
             Configuration.UnitOfWork.Timeout = TimeSpan.FromMinutes(30);
             Configuration.UnitOfWork.IsTransactional = false;
 

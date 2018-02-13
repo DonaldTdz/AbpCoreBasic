@@ -16,6 +16,7 @@ namespace AbpBasic.Tests.Users
         public UserAppService_Tests()
         {
             _userAppService = Resolve<IUserAppService>();
+           
         }
 
         [Fact]

@@ -15,13 +15,22 @@ using AbpBasic.EntityFrameworkCore.Seed.Host;
 using AbpBasic.EntityFrameworkCore.Seed.Tenants;
 using AbpBasic.MultiTenancy;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace AbpBasic.Tests
 {
     public abstract class AbpBasicTestBase : AbpIntegratedTestBase<AbpBasicTestModule>
     {
+        private readonly IHostingEnvironment _env;
+        private readonly IConfigurationRoot _appConfiguration;
+
         protected AbpBasicTestBase()
         {
+            _env = Resolve<IHostingEnvironment>();
+            _appConfiguration = Resolve<IConfigurationRoot>(); //_env.GetAppConfiguration();
+
+
+
             void NormalizeDbContext(AbpBasicDbContext context)
             {
                 context.EntityChangeEventHelper = NullEntityChangeEventHelper.Instance;
