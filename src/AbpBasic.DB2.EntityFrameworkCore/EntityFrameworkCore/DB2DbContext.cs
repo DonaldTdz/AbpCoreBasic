@@ -1,4 +1,5 @@
-﻿using Abp.EntityFrameworkCore;
+﻿using Abp.Dependency;
+using Abp.EntityFrameworkCore;
 using AbpBasic.DB2.ACTS;
 using AbpBasic.DB2.Configuration;
 using AbpBasic.DB2.Core;
@@ -13,15 +14,15 @@ using System.Text;
 
 namespace AbpBasic.DB2.EntityFrameworkCore
 {
-    public class DB2DbContext : AbpDbContext
+    public class DB2DbContext : DbContext, ITransientDependency  //: AbpDbContext
     {
         /* Define a DbSet for each entity of the application */
 
-        public DB2DbContext(DbContextOptions<DB2DbContext> options)
-            : base(options)
-        {
-            
-        }
+        //public DB2DbContext(DbContextOptions<DB2DbContext> options)
+        //    : base(options)
+        //{
+
+        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

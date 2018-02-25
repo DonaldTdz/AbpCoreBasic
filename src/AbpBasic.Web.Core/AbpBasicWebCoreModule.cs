@@ -11,6 +11,7 @@ using Abp.Zero.Configuration;
 using AbpBasic.Authentication.JwtBearer;
 using AbpBasic.Configuration;
 using AbpBasic.EntityFrameworkCore;
+using AbpBasic.DB2.EntityFrameworkCore;
 
 #if FEATURE_SIGNALR
 using Abp.Web.SignalR;
@@ -23,6 +24,7 @@ namespace AbpBasic
     [DependsOn(
          typeof(AbpBasicApplicationModule),
          typeof(AbpBasicEntityFrameworkModule),
+         typeof(DB2EntityFrameworkModule),
          typeof(AbpAspNetCoreModule)
 #if FEATURE_SIGNALR 
         ,typeof(AbpWebSignalRModule)

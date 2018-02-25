@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.Domain.Services;
+using AbpBasic.DB2.Core.ACTS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace AbpBasic.DB2.ACTS
 {
     public class ACTManager : IDomainService, IACTManager
     {
-        private readonly IRepository<ACT, short> _actRepository;
+        private readonly IACTRepository _actRepository;
 
-        public ACTManager(IRepository<ACT, short> actRepository)
+        public ACTManager(IACTRepository actRepository)
         {
             _actRepository = actRepository;
         }

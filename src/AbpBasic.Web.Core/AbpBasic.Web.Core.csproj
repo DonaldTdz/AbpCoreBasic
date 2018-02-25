@@ -20,6 +20,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbpBasic.Application\AbpBasic.Application.csproj" />
+    <ProjectReference Include="..\AbpBasic.DB2.EntityFrameworkCore\AbpBasic.DB2.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\AbpBasic.EntityFrameworkCore\AbpBasic.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>

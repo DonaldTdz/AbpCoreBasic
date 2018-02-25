@@ -2,7 +2,11 @@
 using Abp.EntityFrameworkCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using AbpBasic.DB2.Configuration;
 using AbpBasic.DB2.Core;
+using AbpBasic.DB2.Web;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,7 +25,7 @@ namespace AbpBasic.DB2.EntityFrameworkCore
 
         public override void PreInitialize()
         {
-            if (!SkipDbContextRegistration)
+            /*if (!SkipDbContextRegistration)
             {
                 Configuration.Modules.AbpEfCore().AddDbContext<DB2DbContext>(options =>
                 {
@@ -34,7 +38,20 @@ namespace AbpBasic.DB2.EntityFrameworkCore
                         DB2DbContextConfigurer.Configure(options.DbContextOptions, options.ConnectionString);
                     }
                 });
-            }
+            }*/
+
+            //Configuration.Modules.AbpEfCore().AddDbContext<DB2DbContext>(options =>
+            //{
+            //    var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
+            //    DB2DbContextConfigurer.Configure(options.DbContextOptions, configuration.GetConnectionString(DB2Consts.ConnectionStringName));
+            //});
+
+            Configuration.Modules.AbpEfCore().AddDbContext<DB2DbContext>(options => 
+            {
+                //var builder = new DbContextOptionsBuilder<DB2DbContext>();
+                //var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
+                //DB2DbContextConfigurer.Configure(builder, configuration.GetConnectionString(DB2Consts.ConnectionStringName));
+            });
         }
 
         public override void Initialize()

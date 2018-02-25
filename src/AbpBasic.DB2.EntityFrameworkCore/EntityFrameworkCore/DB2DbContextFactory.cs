@@ -14,14 +14,13 @@ namespace AbpBasic.DB2.EntityFrameworkCore
     {
         public DB2DbContext CreateDbContext(string[] args)
         {
-            var builder = new DbContextOptionsBuilder<DB2DbContext>();
-            var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
+            //var builder = new DbContextOptionsBuilder<DB2DbContext>();
+            //var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
 
-            DB2DbContextConfigurer.Configure(builder, configuration.GetConnectionString(DB2Consts.ConnectionStringName));
+            //DB2DbContextConfigurer.Configure(builder, configuration.GetConnectionString(DB2Consts.ConnectionStringName));
 
-            DB2DbContextConfigurer.Configure(builder, "");
-
-            return new DB2DbContext(builder.Options);
+            //return new DB2DbContext(builder.Options);
+            return new DB2DbContext();
         }
     }
 }
